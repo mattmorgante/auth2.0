@@ -1,11 +1,28 @@
-<h1>Members Only!</h1>
+<h2>Suzy's Care Team</h2>
 
-<% @messages.each do |message| %>
-      <%= message.user.name %>
-  <%=message.title %> 
-  <%= message.body %>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>Email</th>
+      <th>Subject</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.user.name %></td>
+        <td><%= message.user.email %></td>
+        <td><%=message.title %></td>
+        <td><%= message.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <% if current_user %>
-  <%= link_to "Create a message", messages_new_path %>
+  <%= link_to "Send a message", messages_new_path %>
 <% end %>
+
+
