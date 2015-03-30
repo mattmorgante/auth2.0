@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
+  root 'messages#index'
+  get '/messages' => 'messages#index'
 
-  get '/dashboard' => 'messages#index'
+  get '/messages/new' => 'messages#new'
 
-  get '/new' => 'messages#new'
-
-  post '/new' => 'messages#create'
+  post '/messages/new' => 'messages#create'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
-
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 

@@ -1,2 +1,11 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
+<h1>Members Only!</h1>
+
+<% @messages.each do |message| %>
+      <%= message.user.name %>
+  <%=message.title %> 
+  <%= message.body %>
+<% end %>
+
+<% if current_user %>
+  <%= link_to "Create a message", messages_new_path %>
+<% end %>
